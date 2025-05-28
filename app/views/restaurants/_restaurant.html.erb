@@ -1,0 +1,18 @@
+  <div class="card mb-3 ml-3">
+    <div class="card-body">
+      <h5><%= restaurant.name %></h5>
+      <p class="card-text">Address: <%= restaurant.address %></p>
+      <p class="card-text"> Category: <%= restaurant.category %></p>
+      <div>
+        <p><strong>Reviews:</strong></p>
+        <ul>
+          <%restaurant.reviews.each do |review|%>
+            <li><%= review.content %></li>
+            <%end%>
+        </ul>
+      </div>
+      <%= link_to restaurant_path(restaurant) do %>
+        <button class="btn btn-primary"> See details and reviews</button>
+      <% end %>
+    </div>
+  </div>

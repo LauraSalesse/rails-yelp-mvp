@@ -1,0 +1,9 @@
+<h1>Restaurant list</h1>
+
+<div class="text-end mb-3 mr-10">
+  <%= link_to "/restaurants/new", class: "btn btn-primary" do%>
+    <i class="fa-solid fa-plus"></i> Add a new Restaurant
+  <% end %>
+</div>
+
+  <%= render @restaurants%>

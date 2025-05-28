@@ -1,0 +1,35 @@
+<h1> This is the restaurant you just created: <%= @restaurant.name%></h1>
+
+<div class="card-body">
+  <h5>Name : <%= @restaurant.name %></h5>
+  <p class="card-text">Address: <%= @restaurant.address %></p>
+  <p class="card-text"> Category: <%= @restaurant.category %></p>
+
+  <div>
+    <p><strong>Reviews:</strong></p>
+      <ul>
+        <% @restaurant.reviews.each do |review|%>
+          <li><strong>rating:</strong> <%= review.rating %> <strong>Comment</strong> : <%= review.content %> </li>
+          <%end%>
+      </ul>
+ </div>
+</div>
+
+<h1>Add a review</h1>
+
+<%=  simple_form_for([@restaurant, @review]) do |r| %>
+  <%= r.error_notification %>
+
+  <%= r.input :content %>
+  <%= r.input :rating %>
+
+  <%= r.submit "create review", class: "btn btn-primary"%>
+<% end %>
+
+
+
+
+
+<%= link_to "/restaurants" do %>
+  <button class="btn btn-secondary mt-1"><i class="fa-solid fa-backward"></i> Go back to restaurant list</button>
+<% end %>
